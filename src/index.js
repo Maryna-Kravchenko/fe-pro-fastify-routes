@@ -12,7 +12,7 @@ fastify.register(import('@fastify/multipart'), {
 fastify.register(import('@fastify/cookie'));
 
 fastify.post('/uppercase', (request, reply) => {
-  if (!request.body.includes('fuck')) {
+  if (!request.body.toLowerCase().includes('fuck')) {
     reply.send(request.body.toUpperCase());
   } else {
     reply.status(403).send('unresolved');
@@ -20,7 +20,7 @@ fastify.post('/uppercase', (request, reply) => {
 });
 
 fastify.post('/lowercase', (request, reply) => {
-  if (!request.body.includes('fuck')) {
+  if (!request.body.toLowerCase().includes('fuck')) {
     reply.send(request.body.toLowerCase());
   } else {
     reply.status(403).send('unresolved');
@@ -34,7 +34,7 @@ fastify.get('/user/:id', (request, reply) => {
     reply.send(users[id]);
   }
 
-  reply.status(400).send('User does not exist');
+  reply.status(400).send('User not exist');
 });
 
 fastify.get('/users', (request, reply) => {
