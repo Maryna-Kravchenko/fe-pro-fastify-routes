@@ -1,4 +1,4 @@
-import fastify from './index.mjs';
+import fastify from './index.js';
 
 (async () => {
   try {
